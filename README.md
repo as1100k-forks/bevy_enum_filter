@@ -4,6 +4,11 @@
 [![Docs](https://img.shields.io/docsrs/bevy_enum_filter)](https://docs.rs/bevy_enum_filter/) 
 [![License](https://img.shields.io/crates/l/bevy_enum_filter)](./LICENSE.md) 
 
+> [!NOTE]
+> This is the double fork of [bevy_enum_filter](https://github.com/MrGVSV/bevy_enum_filter) which merges [#4](https://github.com/MrGVSV/bevy_enum_filter/pull/4)
+> and [#5](https://github.com/MrGVSV/bevy_enum_filter/pull/5). This fork currently support bevy version 0.13 as the maintainers of the original repo aren't
+> active. If you want to use bevy 0.14 checkout fork of [mikkelens/bevy_enum_filter](https://github.com/mikkelens/bevy_enum_filter)
+
 Filter queries by enum variants!
 
 In Rust, enum variants *aren't* types. This means we normally can't filter for them in a Bevy `Query`. The alternative, then is to use a set of "marker" components. This works well enough, but we miss out on the semantics of using an enum (and the ability to perform enum-specific operations such as `match`-ing).
@@ -38,8 +43,8 @@ fn main() {
 
 Add the following to the `[dependencies]` section of your `Cargo.toml`.
 
-```text
-bevy_enum_filter = "0.3.0"
+```toml
+bevy_enum_filter = { git = "https://github.com/as1100k-forks/bevy_enum_filter.git", tag = "v0.4.0" }
 ```
 
 ## 🤨 How it works
