@@ -18,8 +18,7 @@ pub trait AddEnumFilter {
 
 impl AddEnumFilter for App {
     fn add_enum_filter<T: EnumFilter>(&mut self) -> &mut Self {
-        self
-        .add_systems(PostStartup, create_marker_for_enum::<T>)
-        .add_systems(Update, watch_for_enum::<T>)
+        self.add_systems(PostStartup, create_marker_for_enum::<T>)
+            .add_systems(Update, watch_for_enum::<T>)
     }
 }

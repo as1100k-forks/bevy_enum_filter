@@ -113,12 +113,28 @@ mod tests {
         let entity_tuple = app.world.spawn_empty().id();
         let entity_struct = app.world.spawn_empty().id();
         app.world.entity_mut(entity_unit).insert(TestEnum::Unit);
-        app.world.entity_mut(entity_tuple).insert(TestEnum::Tuple(123));
-        app.world.entity_mut(entity_struct).insert(TestEnum::Struct { _foo: 123 });
+        app.world
+            .entity_mut(entity_tuple)
+            .insert(TestEnum::Tuple(123));
+        app.world
+            .entity_mut(entity_struct)
+            .insert(TestEnum::Struct { _foo: 123 });
 
-        let total_unit_components = app.world.query::<&Enum!(TestEnum::Unit)>().iter(&app.world).len();
-        let total_tuple_components = app.world.query::<&Enum!(TestEnum::Tuple)>().iter(&app.world).len();
-        let total_struct_components = app.world.query::<&Enum!(TestEnum::Struct)>().iter(&app.world).len();
+        let total_unit_components = app
+            .world
+            .query::<&Enum!(TestEnum::Unit)>()
+            .iter(&app.world)
+            .len();
+        let total_tuple_components = app
+            .world
+            .query::<&Enum!(TestEnum::Tuple)>()
+            .iter(&app.world)
+            .len();
+        let total_struct_components = app
+            .world
+            .query::<&Enum!(TestEnum::Struct)>()
+            .iter(&app.world)
+            .len();
         assert_eq!(0, total_unit_components);
         assert_eq!(0, total_tuple_components);
         assert_eq!(0, total_struct_components);
@@ -137,9 +153,21 @@ mod tests {
         // without having to first check `query.is_empty()`, as the first
         // iteration of `Update` will have a populated query, if it matches.
 
-        let total_unit_components = app.world.query::<&Enum!(TestEnum::Unit)>().iter(&app.world).len();
-        let total_tuple_components = app.world.query::<&Enum!(TestEnum::Tuple)>().iter(&app.world).len();
-        let total_struct_components = app.world.query::<&Enum!(TestEnum::Struct)>().iter(&app.world).len();
+        let total_unit_components = app
+            .world
+            .query::<&Enum!(TestEnum::Unit)>()
+            .iter(&app.world)
+            .len();
+        let total_tuple_components = app
+            .world
+            .query::<&Enum!(TestEnum::Tuple)>()
+            .iter(&app.world)
+            .len();
+        let total_struct_components = app
+            .world
+            .query::<&Enum!(TestEnum::Struct)>()
+            .iter(&app.world)
+            .len();
         assert_eq!(1, total_unit_components);
         assert_eq!(1, total_tuple_components);
         assert_eq!(1, total_struct_components);
